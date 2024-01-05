@@ -1,0 +1,111 @@
+sudo apt update
+sudo apt install ca-certificates curl gnupg lsb-release
+sudo mkdir -p /etc/apt/keyrings
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg
+sudo chmod a+r /etc/apt/keyrings/docker.gpg
+echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
+#$ curl -fsSL https://get.docker.com -o get-docker.sh
+#$ sudo sh get-docker.sh
+
+sudo gpasswd -a $(whoami) docker
+sudo mkdir ~/.docker
+sudo chown $USER:$USER /home/$USER/.docker -R
+sudo chgrp $USER /var/run/docker.sock
+sudo service docker restart
+
+
+
+sudo groupadd docker
+sudo usermod -aG docker $USER
+sudo mkdir ~/.docker
+sudo chown $USER:$USER /home/$USER/.docker -R
+sudo chown $USER:$USER /var/run/docker.sock
+sudo apt install docker-compose-plugin
+docker compose version
+
+$ sudo chmod g+rwx $HOME/.docker -R
+$ docker run hello-world
+
+
+
+
+
+
+
+sudo apt install python3-pip
+
+sudo update-alternatives --config python
+
+mkdir -p ~/venv/python3.9
+cd ~/venv/python3.9/
+python -m venv newest
+sudo apt install python3.10-venv
+source ~/venv/python3.9/newest/bin/activate
+
+
+sudo apt install -y software-properties-common
+sudo add-apt-repository ppa:deadsnakes/ppa
+sudo apt update
+
+sudo apt list python3.*
+
+
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.9 130
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.8 120
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python3.7 110
+sudo update-alternatives --install /usr/bin/python python /usr/bin/python2.7 10
+
+sudo update-alternatives --config python
+
+
+
+
+
+
+
+
+
+###############################################
+vim /etc/fstab
+\\192.168.0.15\comFolder    /comArea cifs    username=dandy58,password=manager
+###############################################
+sudo apt install linux-tools-generic linux-cloud-tools-generic
+sudo reboot
+sudo gedit /etc/default/grub
+GRUB_CMDLINE_LINUX_DEFAULT="･･･ video=hyperv_fb:1280x1200"
+$ sudo update-grub
+$ sudo reboot
+###############################################
+$ pip install paho-mqtt
+# Mosquitto(Broker)をインストール
+$ sudo apt-get install mosquitto
+# Mosquittoクライアントをインストール
+$ sudo apt-get install mosquitto-clients
+###############################################
+# システムの起動
+$ sudo systemctl start mosquitto
+# システムの状態確認
+$ sudo systemctl status mosquitto
+# システムの終了
+$ sudo systemctl stop mosquitto
+
+#Subscriberの起動
+$ mosquitto_sub -h localhost -t test
+#Publisherの起動
+$ mosquitto_pub -h localhost -t test -m "test message"
+
+
+
+
+sudo raspi-config
+sudo apt-get install realvnc-vnc-server
+ip addr show
+
+sudo apt update
+sudo apt upgrade
+
+
+https://pymodbus-n.readthedocs.io/en/latest/source/example/modbus_payload.html
+ 
